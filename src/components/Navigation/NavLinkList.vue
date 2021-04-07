@@ -1,6 +1,5 @@
 <template>
-    <v-navigation-drawer permanent>
-        <v-list dense nav>
+  <v-list dense nav>
             <v-list-item 
                 v-for="route in routes" 
                 :key="route.name" 
@@ -18,7 +17,6 @@
                 </v-list-item-content>
             </v-list-item>
         </v-list>
-    </v-navigation-drawer>
 </template>
 
 <script>
@@ -28,9 +26,10 @@ export default {
             return this.$router.options.routes;
         }
     }
-    
+
 }
 </script>
-<style scoped>
+
+<style>
 
 </style>
