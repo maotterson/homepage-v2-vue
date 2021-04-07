@@ -5,6 +5,9 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+// event bus paradigm
+export const bus = new Vue();
+
 new Vue({
   vuetify,
   router,

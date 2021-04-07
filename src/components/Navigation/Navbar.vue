@@ -2,12 +2,41 @@
     <v-app-bar
         flat
     >
+        <v-app-bar-nav-icon 
+            @click="onClickNavIcon"
+        >
+        </v-app-bar-nav-icon>
     </v-app-bar>
 </template>
 
 <script>
-export default {
+import { bus } from '../../main'
 
+export default {
+    data () {
+        return {
+            showDrawer: false
+        }
+    },
+    created (){
+        bus.$on('drawerClosed', () => {
+            this.showDrawer = false;
+        })
+    },
+    methods: {
+        onClickNavIcon(){
+            this.toggleNavDrawer();
+        },
+        toggleNavDrawer(){
+            if(this.showDrawer){
+                this.showDrawer = false;
+            }
+            else{
+                this.showDrawer = true;
+            }
+            bus.$emit('toggleNav', this.showDrawer);
+        }
+    }
 }
 </script>
 
