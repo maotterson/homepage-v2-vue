@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+    <div id="resume">
+        <h1>Resume</h1>
+    </div>
 </template>
 
 <script>

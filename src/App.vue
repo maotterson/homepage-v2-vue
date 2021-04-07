@@ -2,7 +2,7 @@
   <div id="app">
     <Navbar />
     <NavDrawer />
-    <router-view/>
+    <router-view class="page-container" />
   </div>
 </template>
 <script>
@@ -38,5 +38,16 @@ export default {
       color: #42b983;
     }
   }
+}
+
+.page-container{
+  /*
+  border: 1px dotted black;
+  background-color:antiquewhite;
+  */
+  padding-top:2vh;
+  height:100vh;
+  text-align:left;
+  padding-left:2vw;
 }
 </style>

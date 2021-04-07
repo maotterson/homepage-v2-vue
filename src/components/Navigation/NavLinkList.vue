@@ -4,15 +4,12 @@
                 v-for="route in routes" 
                 :key="route.name" 
                 :to="route.path"
+                class = "list-item"
+                
             >
-                <v-list-item-icon>
-                    <v-icon>
-                        {{route.icon}}
-                    </v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                    <v-list-item-title>
-                        {{route.name}}
+                <v-list-item-content class="item-content">
+                    <v-list-item-title class="item-title">
+                        {{route.name}}.
                     </v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
@@ -30,6 +27,16 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+    .list-item{
+        height:auto;
+    }
+    .item-title{
+        font-size:2em !important;
+        line-height:2em !important;
+        height:auto;
+    }
+    .item-content{
+        height:auto;
+    }
 </style>

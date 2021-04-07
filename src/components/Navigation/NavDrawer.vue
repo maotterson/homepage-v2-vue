@@ -5,19 +5,16 @@
         temporary
         @transitionend="onTransitionEnd"
     >
-        <NavHeader />
         <NavLinkList />
     </v-navigation-drawer>
 </template>
 
 <script>
-import NavHeader from "./NavHeader";
 import NavLinkList from "./NavLinkList";
 import { bus } from '../../main'
 
 export default {
     components: {
-        NavHeader,
         NavLinkList
     },
     data () {
@@ -47,7 +44,7 @@ export default {
 <style scoped>
 @media screen {
     #drawer{
-        width:100%;
+        width:100vw !important;
     }
 }
 </style>
