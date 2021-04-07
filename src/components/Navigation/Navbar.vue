@@ -2,8 +2,10 @@
     <v-app-bar id="navbar"
         flat
     >
+        <v-spacer></v-spacer>
         <v-app-bar-nav-icon 
             @click="onClickNavIcon"
+            class="app-bar-icon"
         >
         </v-app-bar-nav-icon>
     </v-app-bar>
@@ -44,4 +46,6 @@ export default {
 #navbar{
     background-color:var(--background-color-light);
 }
+
+
 </style>
