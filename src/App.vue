@@ -49,5 +49,18 @@ export default {
   height:100vh;
   text-align:left;
   padding-left:2vw;
+
+  h1{
+    font-size:3rem;
+    padding-bottom:2rem;
+  }
+  p{
+    font-size:2.5rem;
+    padding-bottom:2rem;
+  }
+  ul{
+    font-size:2.5rem;
+    list-style-type:none;
+  }
 }
 </style>
