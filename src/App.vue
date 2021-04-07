@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <Nav />
+    <Navbar />
+    <NavDrawer />
     <router-view/>
   </div>
 </template>
 <script>
-import Nav from "./components/Navigation/Nav";
+import NavDrawer from "./components/Navigation/NavDrawer";
+import Navbar from "./components/Navigation/Navbar";
 
 export default {
   components:{
-    Nav
+    NavDrawer,
+    Navbar
   }
 }
 </script>

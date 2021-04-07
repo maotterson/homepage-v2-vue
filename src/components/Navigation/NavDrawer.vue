@@ -1,5 +1,6 @@
 <template>
-    <v-navigation-drawer permanent>
+    <v-navigation-drawer
+    >
         <NavHeader />
         <NavLinkList />
     </v-navigation-drawer>
