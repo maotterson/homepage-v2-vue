@@ -1,8 +1,10 @@
 <template>
     <v-sheet
         class="mx-auto"
-        elevation="8"
+        elevation="0"
         max-width="800"
+        height="800"
+        outlined
     >
         <ProjectList />
         <ProjectDetails />

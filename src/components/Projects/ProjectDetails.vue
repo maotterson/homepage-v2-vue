@@ -1,19 +1,12 @@
 <template>
     <v-expand-transition>
         <v-sheet
-            v-if="model != null"
-            height="200"
+            v-if="project != null"
             tile
+            outlined
         >
-            <v-row
-            class="fill-height"
-            align="center"
-            justify="center"
-            >
-                <h3 class="title">
-                    Selected {{ model }}
-                </h3>
-            </v-row>
+            <h2>{{project.name}}</h2>
+            <p>{{project.description}}</p>
         </v-sheet>
     </v-expand-transition>
 </template>
@@ -23,13 +16,12 @@ import { bus } from '../../main'
 export default {
     data () {
         return {
-            model: null
+            project: null
         }
     },
     created (){
         bus.$on('listItemSelected', project => {
-            console.log(project)
-            this.model = project;
+            this.project = project;
         })
     },
     

@@ -4,7 +4,8 @@
     >
         <v-card
             :color="active ? 'primary' : 'grey lighten-1'"
-            class="ma-4"
+            class="ma-4 project-list-item"
+            :class="project.class"
             height="200"
             width="200"
             tile
@@ -35,8 +36,7 @@ import { bus } from '../../main'
 export default {
     props: ['project'],
     methods: {
-        onClickedListItem($event){
-            console.log($event)
+        onClickedListItem(){
             bus.$emit("listItemSelected", this.project);
         }
     }
@@ -45,5 +45,16 @@ export default {
 </script>
 
 <style>
+    .vaccine-grey-icon{
+        background-image:url('../../assets/project-logos/icon-greyscale1.svg') !important;
+    }
 
+    .weather-grey-icon{
+        background-image:url('../../assets/project-logos/icon-greyscale4.svg') !important;
+    }
+
+    .project-list-item{
+        background-size:cover;
+        background-repeat:no-repeat;
+    }
 </style>

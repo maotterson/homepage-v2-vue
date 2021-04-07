@@ -11,6 +11,7 @@
 </template>
 
 <script>
+//todo: hide drawer whitespace that shows up
 import NavLinkList from "./NavLinkList";
 import { bus } from '../../main'
 

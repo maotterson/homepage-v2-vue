@@ -54,12 +54,15 @@ export default {
     font-size:3rem;
     padding-bottom:2rem;
   }
-  p{
+  h2{
     font-size:2.5rem;
+  }
+  p{
+    font-size:2rem;
     padding-bottom:2rem;
   }
   ul{
-    font-size:2.5rem;
+    font-size:2rem;
     list-style-type:none;
   }
 }
