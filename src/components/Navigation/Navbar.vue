@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar
+    <v-app-bar id="navbar"
         flat
     >
         <v-app-bar-nav-icon 
@@ -41,5 +41,7 @@ export default {
 </script>
 
 <style>
-
+#navbar{
+    background-color:var(--background-color-light);
+}
 </style>

@@ -31,10 +31,9 @@ export default {
         })
     },
     methods:{
-        onTransitionEnd($event){
+        onTransitionEnd(){
             // check to see if the drawer is "closed" when there is a transition on the element
             if(document.getElementById("drawer").style.transform == "translateX(-100%)"){
-                console.log($event)
                 this.closeDrawer()
             }
         },
@@ -46,5 +45,9 @@ export default {
 }
 </script>
 <style scoped>
-
+@media screen {
+    #drawer{
+        width:100%;
+    }
+}
 </style>
