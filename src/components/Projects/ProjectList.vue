@@ -10,6 +10,18 @@ export default {
     components:{
         ProjectListItem
     },
+    props: {
+        projects: [
+            {
+                title: 'Ohio Vaccine Map',
+                description:'A searchable map of nearby available COVID-19 vaccine appointments in Ohio.'
+            },
+            {
+                title: 'OpenWeather Map',
+                description:'An interactive map that provides some basic weather information at a given location.'
+            }
+        ]
+    }
 
 }
 </script>
