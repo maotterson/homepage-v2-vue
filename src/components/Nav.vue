@@ -1,17 +1,22 @@
 <template>
     <v-navigation-drawer permanent>
-        <v-list
-            dense
-            nav
-        >
-            <router-link 
+        <v-list dense nav>
+            <v-list-item 
                 v-for="route in routes" 
-                :key="route.name"
-                tag="v-list-item" 
+                :key="route.name" 
                 :to="route.path"
             >
-                {{route.name}}
-            </router-link>
+                <v-list-item-icon>
+                    <v-icon>
+                        {{route.icon}}
+                    </v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                    <v-list-item-title>
+                        {{route.name}}
+                    </v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
