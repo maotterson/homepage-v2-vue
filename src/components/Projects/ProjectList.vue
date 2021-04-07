@@ -1,12 +1,17 @@
 <template>
-    <div>
+    <v-slide-group
+        v-model="model"
+        class="pa-4"
+        show-arrows
+    >
         <ProjectListItem 
             v-for="project in projects" 
             :key="project.name"
             class = "project-list-item"
             :project="project"
         />
-    </div>
+        
+    </v-slide-group>
 </template>
 
 <script>
@@ -34,9 +39,4 @@ export default {
 </script>
 
 <style>
-    .project-list-item{
-        height:20vh;
-        width:20vh;
-        display:inline-flex;
-    }
 </style>

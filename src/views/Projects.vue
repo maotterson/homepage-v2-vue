@@ -1,15 +1,15 @@
 <template>
     <div id="projects">
         <h1>Projects.</h1>
-        <ProjectList />
+        <ProjectCarouselContainer />
     </div>
 </template>
 
 <script>
-import ProjectList from "../components/Projects/ProjectList";
+import ProjectCarouselContainer from "../components/Projects/ProjectCarouselContainer";
 export default {
     components:{
-        ProjectList
+        ProjectCarouselContainer
     }
 }
 </script>
