@@ -1,4 +1,5 @@
 # homepage-vue
+Redesign of homepage using Vue.js framework with Vuetify
 
 ## Project setup
 ```
