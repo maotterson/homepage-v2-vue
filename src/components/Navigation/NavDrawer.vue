@@ -4,7 +4,7 @@
         absolute
         temporary
         @transitionend="onTransitionEnd"
-        right
+        left
     >
         <NavLinkList />
     </v-navigation-drawer>
@@ -32,7 +32,7 @@ export default {
     methods:{
         onTransitionEnd(){
             // check to see if the drawer is "closed" when there is a transition on the element
-            if(document.getElementById("drawer").style.transform == "translateX(100%)"){
+            if(document.getElementById("drawer").style.transform == "translateX(-100%)"){
                 this.closeDrawer()
             }
         },

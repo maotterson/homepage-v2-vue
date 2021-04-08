@@ -1,32 +1,21 @@
 <template>
-    <v-slide-item
-        v-slot="{ active }"
-    >
+    <v-slide-item>
         <v-card
             :color="active ? 'primary' : 'grey lighten-1'"
             class="ma-4 project-list-item"
-            :class="project.class"
-            height="200"
-            width="200"
             tile
             flat
             outlined
             @click="onClickedListItem"
         >
-            <v-row
-                class="fill-height"
-                align="center"
-                justify="center"
+
+            <v-img
+                :src= "projectImage"
             >
-                <v-scale-transition>
-                    <v-icon
-                        v-if="active"
-                        color="white"
-                        size="48"
-                        v-text="'mdi-close-circle-outline'"
-                    ></v-icon>
-                </v-scale-transition>
-            </v-row>
+            </v-img>
+            <v-card-title>
+                {{project.name}}    
+            </v-card-title>
         </v-card>
     </v-slide-item>
 </template>
@@ -35,26 +24,44 @@
 import { bus } from '../../main'
 export default {
     props: ['project'],
+    data () {
+        return {
+            active : false
+        }
+    },
+    computed: {
+        projectImage(){
+            return this.active ? require(`../../assets/project-logos/${this.project.image}-2.svg`) : require(`../../assets/project-logos/${this.project.image}-1.svg`);
+        }
+    },
     methods: {
         onClickedListItem(){
-            bus.$emit("listItemSelected", this.project);
+            if(!this.active){
+                bus.$emit("listItemSelected", this.project);
+                this.active=true;
+            }
+            else{
+                bus.$emit("listItemSelected",null);
+                this.active=false;
+            }
         }
-    }
-    
+    },
+    created (){
+        // notify the other projects that they are no longer active
+        bus.$on('listItemSelected', project => {
+            if(this.project!=project){
+                this.active=false;
+            }
+        })
+    },
 }
 </script>
 
-<style>
-    .vaccine-grey-icon{
-        background-image:url('../../assets/project-logos/icon-greyscale1.svg') !important;
-    }
-
-    .weather-grey-icon{
-        background-image:url('../../assets/project-logos/icon-greyscale4.svg') !important;
-    }
+<style lang="scss" scoped>
 
     .project-list-item{
         background-size:cover;
         background-repeat:no-repeat;
+        margin-left:5px;
     }
 </style>

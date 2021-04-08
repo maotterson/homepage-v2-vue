@@ -38,6 +38,12 @@ export default {
       color: #42b983;
     }
   }
+  
+}
+
+em{
+  color:red !important;
+  font-style:normal;
 }
 
 .page-container{
@@ -56,13 +62,14 @@ export default {
   }
   h2{
     font-size:2.5rem;
+    padding-bottom:2rem;
   }
   p{
-    font-size:2rem;
+    font-size:1.5rem;
     padding-bottom:2rem;
   }
   ul{
-    font-size:2rem;
+    font-size:1.5rem;
     list-style-type:none;
   }
 }

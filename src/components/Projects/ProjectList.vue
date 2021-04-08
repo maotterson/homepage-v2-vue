@@ -1,7 +1,7 @@
 <template>
     <v-slide-group
         v-model="project"
-        class="pa-4"
+        class="pa-4 project-slide-group"
     >
         <ProjectListItem 
             v-for="project in projects" 
@@ -27,7 +27,9 @@ export default {
     },
     created (){
         bus.$on('listItemSelected', project => {
-            this.project = project;
+            if(this.project!=project){
+                this.project = project;
+            }
         })
     },
     props: {
@@ -37,14 +39,12 @@ export default {
                 {
                     name: 'Ohio Vaccine Map',
                     description:'A searchable map of nearby available COVID-19 vaccine appointments in Ohio.',
-                    class:'vaccine-grey-icon',
-                    greylogo:'icon-greyscale1.svg'
+                    image: 'vaccine',
                 },
                 {
-                    name: 'OpenWeather Map',
+                    name: 'Open Weather Map',
                     description:'An interactive map that provides some basic weather information at a given location.',
-                    class:'weather-grey-icon',
-                    greylogo:'icon-greyscale2.svg'
+                    image: 'cloud',
                 }
             ]
         }
@@ -53,4 +53,7 @@ export default {
 </script>
 
 <style>
+.project-slide-group{
+    padding-bottom:5vh;
+}
 </style>
