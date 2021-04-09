@@ -13,7 +13,7 @@ export default {
   components:{
     Navbar,
     NavDrawer
-  },
+  }
 }
 </script>
 <style lang="scss">

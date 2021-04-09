@@ -1,6 +1,7 @@
 <template>
     <v-container
-        id="drawer" 
+        id="drawer"
+        ref="drawer"
         fluid
         :class="showDrawer ? 'expanded' : 'shrunk'"
     >
@@ -23,12 +24,26 @@ export default {
         }
     },
     created (){
-        bus.$on('toggleNav', showDrawer => {
-            this.showDrawer = showDrawer
-        }),
-        bus.$on('drawerClosed', () => {
-            this.showDrawer = false
-        })
+        this.addEventListeners();
+    },
+    methods: {
+        addEventListeners(){
+            bus.$on('toggleNav', showDrawer => {
+                this.showDrawer = showDrawer
+            }),
+            bus.$on('drawerClosed', () => {
+                this.showDrawer = false
+            }),
+            bus.$on('navBarMounted',navBarHeight => {
+                const offsetHeight = navBarHeight
+                this.setOffsetHeight(offsetHeight)
+            })
+        },
+        setOffsetHeight(offsetHeight){
+            console.log(this.$refs.drawer.style.top)
+            this.$refs.drawer.style.top=`${offsetHeight}px`
+            console.log(this.$refs.drawer.style.top)
+        },
     }
 }
 </script>
@@ -44,9 +59,9 @@ export default {
 
 #drawer{
     position:fixed;
-    top:5vh;
     left:0;
     background-color:white;
+    z-index: 100;
 }
 @media screen {
     

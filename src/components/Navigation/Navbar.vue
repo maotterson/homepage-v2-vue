@@ -1,5 +1,7 @@
 <template>
-    <v-app-bar id="navbar"
+    <v-app-bar
+        id="navbar"
+        ref="navBar"
         flat
         fixed
     >
@@ -25,6 +27,9 @@ export default {
         bus.$on('drawerClosed', () => {
             this.showDrawer = false;
         })
+    },
+    mounted(){
+        bus.$emit('navBarMounted',this.$refs.navBar.$el.clientHeight);
     },
     methods: {
         onClickNavIcon(){
