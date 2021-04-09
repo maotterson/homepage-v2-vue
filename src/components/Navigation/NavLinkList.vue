@@ -5,7 +5,7 @@
             :key="route.name" 
             :to="route.path"
             class = "list-item"
-            
+            @click="onClickedNavItem"
         >
             <v-list-item-content class="item-content">
                 <v-list-item-title class="item-title">
@@ -17,13 +17,21 @@
 </template>
 
 <script>
+import { bus } from '../../main';
 export default {
     computed: {
         routes : function() {
             return this.$router.options.routes;
         }
+    },
+    methods: {
+        onClickedNavItem(){
+            this.closeDrawer();
+        },
+        closeDrawer(){
+            bus.$emit('drawerClosed');
+        }
     }
-
 }
 </script>
 

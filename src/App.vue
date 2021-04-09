@@ -6,13 +6,13 @@
   </div>
 </template>
 <script>
-import NavDrawer from "./components/Navigation/NavDrawer";
 import Navbar from "./components/Navigation/Navbar";
+import NavDrawer from "./components/Navigation/NavDrawer";
 
 export default {
   components:{
-    NavDrawer,
-    Navbar
+    Navbar,
+    NavDrawer
   },
 }
 </script>

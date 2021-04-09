@@ -1,14 +1,11 @@
 <template>
-    <v-navigation-drawer id="drawer"
-        v-model="showDrawer"
-        absolute
-        temporary
-        @transitionend="onTransitionEnd"
-        left
-        fixed
+    <v-container
+        id="drawer" 
+        fluid
+        :class="showDrawer ? 'expanded' : 'shrunk'"
     >
         <NavLinkList />
-    </v-navigation-drawer>
+    </v-container>
 </template>
 
 <script>
@@ -28,26 +25,30 @@ export default {
     created (){
         bus.$on('toggleNav', showDrawer => {
             this.showDrawer = showDrawer
+        }),
+        bus.$on('drawerClosed', () => {
+            this.showDrawer = false
         })
-    },
-    methods:{
-        onTransitionEnd(){
-            // check to see if the drawer is "closed" when there is a transition on the element
-            if(document.getElementById("drawer").style.transform == "translateX(-100%)"){
-                this.closeDrawer()
-            }
-        },
-        closeDrawer(){
-            this.showDrawer = false;
-            bus.$emit('drawerClosed');
-        }
     }
 }
 </script>
 <style scoped>
+.expanded{
+    height:100vh !important;
+    overflow-y:hidden !important;
+}
+.shrunk{
+    height:0px !important;
+    visibility:hidden !important;
+}
+
+#drawer{
+    position:fixed;
+    top:5vh;
+    left:0;
+    background-color:white;
+}
 @media screen {
-    #drawer{
-        width:100vw !important;
-    }
+    
 }
 </style>

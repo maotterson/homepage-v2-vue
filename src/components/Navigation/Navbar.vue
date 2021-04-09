@@ -18,7 +18,7 @@ import { bus } from '../../main'
 export default {
     data () {
         return {
-            showDrawer: false
+            showDrawer: false,
         }
     },
     created (){
