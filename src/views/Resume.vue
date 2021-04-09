@@ -1,6 +1,10 @@
 <template>
     <div id="resume">
-        <h1>My resume.</h1>
+        <v-sheet
+            class="container-fluid title-sheet" 
+        >
+            <h1>My resume.</h1>
+        </v-sheet>
     </div>
 </template>
 

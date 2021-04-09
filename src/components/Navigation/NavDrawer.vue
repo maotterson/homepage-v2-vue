@@ -5,6 +5,7 @@
         temporary
         @transitionend="onTransitionEnd"
         left
+        fixed
     >
         <NavLinkList />
     </v-navigation-drawer>

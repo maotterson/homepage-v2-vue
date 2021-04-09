@@ -47,16 +47,13 @@ em{
 }
 
 .page-container{
-  /*
-  border: 1px dotted black;
-  background-color:antiquewhite;
-  */
   padding-top:2vh;
-  height:100vh;
   text-align:left;
   padding-left:2vw;
 
   h1{
+    text-align:center;
+    margin-top:40vh;
     font-size:3rem;
     padding-bottom:2rem;
   }
@@ -72,5 +69,9 @@ em{
     font-size:1.5rem;
     list-style-type:none;
   }
+}
+
+.title-sheet{
+  height:100vh;
 }
 </style>

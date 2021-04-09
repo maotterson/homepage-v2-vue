@@ -1,16 +1,12 @@
 <template>
-    <v-slide-group
-        v-model="project"
-        class="pa-4 project-slide-group"
-    >
+    <v-sheet>
         <ProjectListItem 
             v-for="project in projects" 
             :key="project.name"
             class = "project-list-item"
             :project="project"
         />
-        
-    </v-slide-group>
+    </v-sheet>
 </template>
 
 <script>
@@ -20,6 +16,7 @@ export default {
     components:{
         ProjectListItem
     },
+    props: ['projects'],
     data () {
         return {
             project: null
@@ -32,23 +29,7 @@ export default {
             }
         })
     },
-    props: {
-        projects : {
-            type: Array,
-            default: () => [
-                {
-                    name: 'Ohio Vaccine Map',
-                    description:'A searchable map of nearby available COVID-19 vaccine appointments in Ohio.',
-                    image: 'vaccine',
-                },
-                {
-                    name: 'Open Weather Map',
-                    description:'An interactive map that provides some basic weather information at a given location.',
-                    image: 'cloud',
-                }
-            ]
-        }
-    }
+    
 }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
     <v-app-bar id="navbar"
         flat
+        fixed
     >
         <v-spacer></v-spacer>
         <v-app-bar-nav-icon 

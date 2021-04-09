@@ -1,6 +1,10 @@
 <template>
   <div id="about">
-    <h1>About me.</h1>
+    <v-sheet
+            class="container-fluid title-sheet"
+    >
+      <h1>About me.</h1>
+    </v-sheet>
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum id alias, dignissimos illo officia consectetur pariatur repudiandae molestiae mollitia quam, harum quod nostrum deleniti dolores possimus, veritatis eveniet aspernatur esse.</p>
     <p>My preferred technical stack:</p>
     <ul>

@@ -1,6 +1,11 @@
 <template>
   <div id="home">
-    <h1>Hello.</h1>
+    <v-sheet
+            class="container-fluid title-sheet" 
+    >
+      <h1>Hello.</h1>
+    </v-sheet>
+    
     <p>My name is <em>Mark Otterson</em>.</p>
     <p>Welcome to my personal website/portfolio.</p>
     <p>Follow me on the following platforms:</p>
