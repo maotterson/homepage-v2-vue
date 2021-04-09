@@ -13,6 +13,24 @@ export default {
   components:{
     Navbar,
     NavDrawer
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const titleSheet = document.querySelector(".title-sheet");
+      if(window.scrollY > window.screen.availHeight-400 && !document.querySelector(".title-sheet-shrunk")) {
+       titleSheet.classList="title-sheet-shrunk title-sheet";
+       console.log(titleSheet.style.height)
+      }
+      else if(window.scrollY < 200 && document.querySelector(".title-sheet-shrunk")){
+        titleSheet.classList="title-sheet";
+      }
+    }
   }
 }
 </script>
@@ -73,5 +91,9 @@ em{
 
 .title-sheet{
   height:100vh;
+}
+
+.title-sheet-shrunk{
+  height:0vh !important;
 }
 </style>
