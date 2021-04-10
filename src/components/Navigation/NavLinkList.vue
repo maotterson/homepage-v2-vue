@@ -1,5 +1,5 @@
 <template>
-    <v-list dense nav>
+    <v-list class="list-container" dense nav>
         <v-list-item 
             v-for="route in routes" 
             :key="route.name" 
@@ -38,13 +38,26 @@ export default {
 <style lang="scss" scoped>
     .list-item{
         height:auto;
+        color:inherit !important;
+        background-color:inherit !important;
+    }
+    .list-container{
+        color:inherit !important;
+        background-color:inherit !important;
     }
     .item-title{
         font-size:2em !important;
         line-height:2em !important;
         height:auto;
+        color:inherit !important;
+        background-color:inherit !important;
+    }
+    .theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled){
+        color:inherit !important;
     }
     .item-content{
-        height:auto;
+        height:100%;
+        color:inherit !important;
+        background-color:inherit !important;
     }
 </style>

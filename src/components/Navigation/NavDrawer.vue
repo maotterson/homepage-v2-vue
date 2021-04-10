@@ -3,7 +3,7 @@
         id="drawer"
         ref="drawer"
         fluid
-        :class="showDrawer ? 'expanded' : 'shrunk'"
+        :class="[(showDrawer ? 'expanded' : 'shrunk'), (isDark ? 'dark' : 'light')]"
     >
         <NavLinkList />
     </v-container>
@@ -20,7 +20,8 @@ export default {
     },
     data () {
         return {
-            showDrawer: false
+            showDrawer: false,
+            isDark: false
         }
     },
     created (){
@@ -30,13 +31,19 @@ export default {
         addEventListeners(){
             bus.$on('toggleNav', showDrawer => {
                 this.showDrawer = showDrawer
-            }),
+            })
             bus.$on('drawerClosed', () => {
                 this.showDrawer = false
-            }),
+            })
             bus.$on('navBarMounted',navBarHeight => {
                 const offsetHeight = navBarHeight
                 this.setOffsetHeight(offsetHeight)
+            })
+            bus.$on('isDark', () => {
+                this.isDark = true;
+            })
+            bus.$on('isLight',() => {
+                this.isDark = false;
             })
         },
         setOffsetHeight(offsetHeight){
@@ -50,7 +57,8 @@ export default {
 <style scoped>
 .expanded{
     height:100vh !important;
-    overflow-y:hidden !important;
+    overflow-y:hidden;
+    touch-action: none;
 }
 .shrunk{
     height:0px !important;
@@ -62,6 +70,8 @@ export default {
     left:0;
     background-color:white;
     z-index: 100;
+    overflow:hidden;
+    touch-action: none;
 }
 @media screen {
     

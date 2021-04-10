@@ -4,9 +4,11 @@
         ref="navBar"
         flat
         fixed
+        :class="isDark ? 'dark' : 'light'"
     >
         <v-spacer></v-spacer>
-        <v-app-bar-nav-icon 
+        <v-app-bar-nav-icon
+            id="nav-icon"
             @click="onClickNavIcon"
             class="app-bar-icon"
         >
@@ -21,12 +23,11 @@ export default {
     data () {
         return {
             showDrawer: false,
+            isDark: false
         }
     },
     created (){
-        bus.$on('drawerClosed', () => {
-            this.showDrawer = false;
-        })
+        this.addEventListeners();
     },
     mounted(){
         bus.$emit('navBarMounted',this.$refs.navBar.$el.clientHeight);
@@ -43,6 +44,17 @@ export default {
                 this.showDrawer = true;
             }
             bus.$emit('toggleNav', this.showDrawer);
+        },
+        addEventListeners(){
+            bus.$on('drawerClosed', () => {
+                this.showDrawer = false;
+            })
+            bus.$on('isDark', () => {
+                this.isDark = true;
+            })
+            bus.$on('isLight',() => {
+                this.isDark = false;
+            })
         }
     }
 }
@@ -51,6 +63,11 @@ export default {
 <style>
 #navbar{
     background-color:var(--background-color-light);
+}
+
+#nav-icon{
+    background-color:inherit !important;
+    color:inherit !important;
 }
 
 

@@ -1,20 +1,21 @@
 <template>
-    <div id="projects">
+    <v-container 
+        id="projects"
+        fluid>
         <v-sheet
             class="container-fluid title-sheet"
         >
             <h1>Projects.</h1>
         </v-sheet>
         <v-sheet
-            class="container-fluid"
+            class="container--fluid dark"
             height="100vh"
-            dark
         >
             <ProjectList :projects="projects" />
         </v-sheet>
             
         
-    </div>
+    </v-container>
 </template>
 
 <script>

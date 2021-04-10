@@ -1,5 +1,7 @@
 <template>
-  <div id="home">
+  <v-container
+    id="home"
+    fluid>
     <v-sheet
             class="container-fluid title-sheet" 
     >
@@ -14,7 +16,7 @@
       <li>LinkedIn</li>
       <li>CodePen</li>
     </ul>
-  </div>
+  </v-container>
 </template>
 
 <script>

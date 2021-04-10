@@ -1,11 +1,13 @@
 <template>
-    <div id="resume">
+    <v-container 
+        id="resume"
+        fluid>
         <v-sheet
-            class="container-fluid title-sheet" 
+            class="container--fluid title-sheet" 
         >
             <h1>My resume.</h1>
         </v-sheet>
-    </div>
+    </v-container>
 </template>
 
 <script>

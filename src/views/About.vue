@@ -1,7 +1,11 @@
 <template>
-  <div id="about">
+  <v-container
+    id="about"
+    fluid
+  >
     <v-sheet
-            class="container-fluid title-sheet"
+      fluid
+            class="title-sheet"
     >
       <h1>About me.</h1>
     </v-sheet>
@@ -14,7 +18,7 @@
       <li>Graphics: Inkscape</li>
       <li>Cloud Services: AWS</li>
     </ul>
-  </div>
+  </v-container>
 </template>
 
 <script>

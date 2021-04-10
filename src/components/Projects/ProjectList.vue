@@ -1,9 +1,10 @@
 <template>
-    <v-sheet>
+    <v-sheet
+        class="dark">
         <ProjectListItem 
             v-for="project in projects" 
             :key="project.name"
-            class = "project-list-item"
+            class = "project-list-item dark"
             :project="project"
         />
     </v-sheet>
