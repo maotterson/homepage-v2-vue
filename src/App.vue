@@ -1,21 +1,29 @@
 <template>
-  <div id="app">
-    <Navbar />
-    <NavDrawer />
-    <transition name="fade">
-      <router-view class="page-container" />
+  <div 
+    id="app"
+  >
+    <NavPane />
+    <transition
+      name="fade"
+    >
+      <router-view 
+        class="page-container"
+      />
     </transition>
   </div>
 </template>
 <script>
-import Navbar from "./components/Navigation/Navbar";
-import NavDrawer from "./components/Navigation/NavDrawer";
+import NavPane from "./components/Navigation/NavPane";
 import { bus } from './main'
 
 export default {
   components:{
-    Navbar,
-    NavDrawer
+    NavPane
+  },
+  data () {
+      return {
+          showDrawer: false
+      }
   },
   created () {
     this.addEventListeners();
@@ -23,40 +31,30 @@ export default {
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll);
   },
-  data () {
-        return {
-            oldY : 0
-        }
-    },
   methods: {
     addEventListeners(){
       bus.$on('orderScrollUp', () =>{
         window.scroll(0,0);
         bus.$emit('isLight');
       })
+      bus.$on('toggleNav', bool =>{
+        this.showDrawer = bool;
+        if(this.showDrawer){
+          document.getElementsByTagName('html')[0].style.overflow = "hidden";
+        }
+        else{
+          document.getElementsByTagName('html')[0].style.overflow = "scroll";
+        }
+      })
+      bus.$on('drawerClosed', () =>{
+        this.showDrawer = false;
+        document.getElementsByTagName('html')[0].style.overflow = "scroll";
+      })
       window.addEventListener('scroll', this.handleScroll);
     },
     handleScroll() {
-      const scrollingDown = window.scrollY>this.oldY ? true : false;
-      this.oldY = window.scrollY;
-      if(scrollingDown){
-        this.handleScrollDown()
-      }
-      else{
-        this.handleScrollUp()
-      }
+      document.body.style.setProperty('--scroll',window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
       this.handleThemeByLocation()
-    },
-    handleScrollDown(){
-      if(window.scrollY>500 && window.scrollY<800){
-        const elmnt = document.getElementById("slide2-header");
-        elmnt.scrollIntoView();
-      }
-    },
-    handleScrollUp(){
-      if(window.scrollY>500 && window.scrollY<800){
-        window.scroll(0,0);
-      }
     },
     handleThemeByLocation(){
       const offset = 150;
@@ -153,6 +151,10 @@ em{
 
 .center {
   text-align:center;
+}
+
+.noscroll{
+  overflow-y:hidden !important;
 }
 
 </style>
