@@ -47,9 +47,7 @@ export default {
             })
         },
         setOffsetHeight(offsetHeight){
-            console.log(this.$refs.drawer.style.top)
             this.$refs.drawer.style.top=`${offsetHeight}px`
-            console.log(this.$refs.drawer.style.top)
         },
     }
 }

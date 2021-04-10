@@ -27,9 +27,13 @@ export default {
     methods: {
         onClickedNavItem(){
             this.closeDrawer();
+            this.scrollUp();
         },
         closeDrawer(){
             bus.$emit('drawerClosed');
+        },
+        scrollUp(){
+            bus.$emit('orderScrollUp')
         }
     }
 }

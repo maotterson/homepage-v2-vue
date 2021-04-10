@@ -2,7 +2,9 @@
   <div id="app">
     <Navbar />
     <NavDrawer />
-    <router-view class="page-container" />
+    <transition name="fade">
+      <router-view class="page-container" />
+    </transition>
   </div>
 </template>
 <script>
@@ -21,37 +23,20 @@ export default {
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll);
   },
-  data () {
-    return {
-      preventScrolling: false
-    }
-  },
   methods: {
     addEventListeners(){
-      bus.$on('navBarMounted',navBarHeight => {
-        const styleRule = `<style>
-          .title-sheet-shrunk{
-            height:${navBarHeight}px !important;
-          }
-        </style>`;
-        document.head.insertAdjacentHTML("beforeend",styleRule);
-      });
-      bus.$on('toggleNav', showDrawer => {
-        this.preventScrolling = showDrawer
-      })
-      bus.$on('drawerClosed', () => {
-        this.preventScrolling = false
+      bus.$on('orderScrollUp', () =>{
+        window.scroll(0,0);
+        bus.$emit('isLight');
       })
       window.addEventListener('scroll', this.handleScroll);
     },
     handleScroll() {
-      const titleSheet = document.querySelector(".title-sheet");
-      if(window.scrollY > window.screen.availHeight-500 && !document.querySelector(".title-sheet-shrunk")) {
-        titleSheet.classList="title-sheet-shrunk title-sheet";
+      const offset = 255;
+      if(window.scrollY > window.screen.availHeight + offset) {
         bus.$emit('isDark');
       }
-      else if(window.scrollY < 200 && document.querySelector(".title-sheet-shrunk")){
-        titleSheet.classList="title-sheet";
+      else if(window.scrollY < window.screen.availHeight + offset){
         bus.$emit('isLight');
       }
     },
@@ -119,13 +104,8 @@ em{
 
 .title-sheet{
   height:100vh;
-  transition: height 2s;
 }
 
-.title-sheet-shrunk{
-  height:0vh !important;
-  transition: height 2s;
-}
 
 .light{
   background-color:var(--light-bg) !important;
