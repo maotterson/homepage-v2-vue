@@ -8,10 +8,10 @@
             <h1>Projects.</h1>
         </v-sheet>
         <v-sheet
-            class="container--fluid dark"
+            class="container--fluid dark projects-summary"
             height="100vh"
         >
-            <ProjectList :projects="projects" />
+            <ProjectList id="slide2-header" :projects="projects" />
         </v-sheet>
             
         
@@ -61,5 +61,7 @@ export default {
 </script>
 
 <style>
-
+.projects-summary{
+    padding-top:50vh;
+}
 </style>

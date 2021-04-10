@@ -3,12 +3,12 @@
     id="home"
     fluid>
     <v-sheet
-            class="container-fluid title-sheet" 
+            class="container-fluid title-sheet center" 
     >
       <h1>Hello.</h1>
+      <h2>My name is <em>Mark Otterson</em>.</h2>
     </v-sheet>
     
-    <p>My name is <em>Mark Otterson</em>.</p>
     <p>Welcome to my personal website/portfolio.</p>
     <p>Follow me on the following platforms:</p>
     <ul>

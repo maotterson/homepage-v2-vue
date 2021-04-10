@@ -1,16 +1,16 @@
 <template>
-    
-        <v-card
-            class="ma-2 project-list-item"
-            tile
-            flat
-            width="300"
-            @click="onClickedListItem"
-        >
-            <v-card-title>
-                {{project.name}}    
-            </v-card-title>
-        </v-card>   
+    <v-card
+        class="ma-4 project-list-item"
+        tile
+        flat
+        width="300"
+        height="300"
+        @click="onClickedListItem"
+    >
+        <v-card-title>
+            {{project.name}}    
+        </v-card-title>
+    </v-card>   
 </template>
 
 <script>
@@ -37,5 +37,6 @@ export default {
 
     .project-list-item{
         margin-left:5px;
+        display:inline-flex;
     }
 </style>

@@ -1,12 +1,13 @@
 <template>
     <v-sheet
-        class="dark">
-        <ProjectListItem 
-            v-for="project in projects" 
-            :key="project.name"
-            class = "project-list-item dark"
-            :project="project"
-        />
+        class="dark"
+        id="project-list-sheet">
+            <ProjectListItem 
+                v-for="project in projects" 
+                :key="project.name"
+                class = "project-list-item dark"
+                :project="project"
+            />
     </v-sheet>
 </template>
 
@@ -37,5 +38,11 @@ export default {
 <style>
 .project-slide-group{
     padding-bottom:5vh;
+}
+
+.project-list-sheet{
+    display:flex;
+    flex-direction:row;
+    
 }
 </style>

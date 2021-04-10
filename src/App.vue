@@ -23,6 +23,11 @@ export default {
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll);
   },
+  data () {
+        return {
+            oldY : 0
+        }
+    },
   methods: {
     addEventListeners(){
       bus.$on('orderScrollUp', () =>{
@@ -32,14 +37,36 @@ export default {
       window.addEventListener('scroll', this.handleScroll);
     },
     handleScroll() {
-      const offset = 255;
+      const scrollingDown = window.scrollY>this.oldY ? true : false;
+      this.oldY = window.scrollY;
+      if(scrollingDown){
+        this.handleScrollDown()
+      }
+      else{
+        this.handleScrollUp()
+      }
+      this.handleThemeByLocation()
+    },
+    handleScrollDown(){
+      if(window.scrollY>500 && window.scrollY<800){
+        const elmnt = document.getElementById("slide2-header");
+        elmnt.scrollIntoView();
+      }
+    },
+    handleScrollUp(){
+      if(window.scrollY>500 && window.scrollY<800){
+        window.scroll(0,0);
+      }
+    },
+    handleThemeByLocation(){
+      const offset = 150;
       if(window.scrollY > window.screen.availHeight + offset) {
         bus.$emit('isDark');
       }
       else if(window.scrollY < window.screen.availHeight + offset){
         bus.$emit('isLight');
       }
-    },
+    }
   }
 }
 </script>
@@ -58,7 +85,6 @@ export default {
 
   a {
     font-weight: bold;
-    color: #2c3e50;
 
     &.router-link-exact-active {
       color: #42b983;
@@ -103,7 +129,7 @@ em{
 }
 
 .title-sheet{
-  height:100vh;
+  height:80vh;
 }
 
 
@@ -117,5 +143,16 @@ em{
   color:var(--dark-fg) !important;
 }
 
+
+.fade-enter-active {
+  transition: opacity 2s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.center {
+  text-align:center;
+}
 
 </style>
