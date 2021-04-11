@@ -1,28 +1,36 @@
 <template>
     <v-container
         class="projects-summary"
-        height="100vh"
         fluid
     >
-        <v-row>
+        <v-row
+            class="project-summary-row">
             <v-col 
-                cols="12"
-                sm="4"
-                v-if="alignLeft">
-                <p>{{project.description}}</p>
-                <p>{{align}}</p>
-            </v-col>
-            <v-col
+                class="project-column"
+                v-if="alignLeft"
                 cols="12"
                 sm="4">
-                IMAGE HERE
+                <h2>{{project.name}}</h2>
+                <p>{{project.description}}</p>
+            </v-col>
+            <v-col
+                class="project-column"
+                cols="12"
+                sm="4">
+                <v-container
+                    fluid
+                    ref="projectImage"
+                    class="project-image">
+
+                </v-container>
             </v-col>
             <v-col 
+                class="project-column"
+                v-if="!alignLeft"
                 cols="12"
-                sm="4"
-                v-if="!alignLeft">
+                sm="4">
+                <h2>{{project.name}}</h2>
                 <p>{{project.description}}</p>
-                <p>{{align}}</p>
             </v-col>
         </v-row>
     </v-container>
@@ -37,6 +45,10 @@ export default {
             this.project = project;
         })
     },
+    mounted(){
+        const imageUrl = require(`../../assets/project-logos/${this.project.image}-1.svg`);
+        this.$refs.projectImage.style.backgroundImage = `url(${imageUrl})`
+    }
     
 
 }
@@ -44,8 +56,24 @@ export default {
 
 <style>
 .projects-summary{
-    padding-top:50vh;
-    height:100vh;
+    height:130vh;
+}
+
+.project-column{
+    flex-grow:0;
+}
+
+.project-image{
+    height:500px;
+    width:500px;
+    background-size:cover !important;
+    background-position: center !important;
+}
+
+.project-summary-row{
+    align-items:center !important;
+    height:inherit;
+    justify-content:space-around !important;
 }
 
 </style>
