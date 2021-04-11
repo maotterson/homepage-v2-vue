@@ -6,6 +6,7 @@
                 :key="project.name"
                 class="project-list-item"
                 :class="(index%2 == 0) ? 'dark left-details' : 'light right-details'"
+                :align="(index%2 == 0) ? 'left' : 'right'"
                 :project="project"
             />
     </v-sheet>

@@ -127,7 +127,7 @@ em{
 }
 
 .title-sheet{
-  height:110vh;
+  height:130vh;
 }
 
 

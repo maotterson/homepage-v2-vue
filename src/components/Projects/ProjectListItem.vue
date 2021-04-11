@@ -16,7 +16,7 @@
 <script>
 import { bus } from '../../main'
 export default {
-    props: ['project'],
+    props: ['project', 'alignLeft'],
     data () {
         return {
             active : false

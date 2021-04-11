@@ -1,17 +1,37 @@
 <template>
-    <v-sheet
-        class="container--fluid projects-summary"
+    <v-container
+        class="projects-summary"
         height="100vh"
+        fluid
     >
-        <h2>{{project.name}}</h2>
-        <p>{{project.description}}</p>
-    </v-sheet>
+        <v-row>
+            <v-col 
+                cols="12"
+                sm="4"
+                v-if="alignLeft">
+                <p>{{project.description}}</p>
+                <p>{{align}}</p>
+            </v-col>
+            <v-col
+                cols="12"
+                sm="4">
+                IMAGE HERE
+            </v-col>
+            <v-col 
+                cols="12"
+                sm="4"
+                v-if="!alignLeft">
+                <p>{{project.description}}</p>
+                <p>{{align}}</p>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
 <script>
 import { bus } from '../../main'
 export default {
-    props: ['project'],
+    props: ['project', 'alignLeft'],
     created (){
         bus.$on('listItemSelected', project => {
             this.project = project;
