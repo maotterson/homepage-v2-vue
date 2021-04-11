@@ -1,11 +1,11 @@
 <template>
     <v-sheet
-        class="dark"
         id="project-list-sheet">
-            <ProjectListItem 
-                v-for="project in projects" 
+            <ProjectDetails
+                v-for="(project, index) in projects" 
                 :key="project.name"
-                class = "project-list-item dark"
+                class="project-list-item"
+                :class="(index%2 == 0) ? 'dark left-details' : 'light right-details'"
                 :project="project"
             />
     </v-sheet>
@@ -13,10 +13,10 @@
 
 <script>
 import { bus } from '../../main'
-import ProjectListItem from "./ProjectListItem";
+import ProjectDetails from "./ProjectDetails";
 export default {
     components:{
-        ProjectListItem
+        ProjectDetails
     },
     props: ['projects'],
     data () {

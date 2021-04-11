@@ -1,24 +1,17 @@
 <template>
-    <v-expand-transition>
-        <v-sheet
-            v-if="project != null"
-            tile
-            outlined
-        >
-            <h2>{{project.name}}</h2>
-            <p>{{project.description}}</p>
-        </v-sheet>
-    </v-expand-transition>
+    <v-sheet
+        class="container--fluid projects-summary"
+        height="100vh"
+    >
+        <h2>{{project.name}}</h2>
+        <p>{{project.description}}</p>
+    </v-sheet>
 </template>
 
 <script>
 import { bus } from '../../main'
 export default {
-    data () {
-        return {
-            project: null
-        }
-    },
+    props: ['project'],
     created (){
         bus.$on('listItemSelected', project => {
             this.project = project;
@@ -30,5 +23,9 @@ export default {
 </script>
 
 <style>
+.projects-summary{
+    padding-top:50vh;
+    height:100vh;
+}
 
 </style>

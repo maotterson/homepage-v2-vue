@@ -43,12 +43,12 @@ export default {
           document.getElementsByTagName('html')[0].style.overflow = "hidden";
         }
         else{
-          document.getElementsByTagName('html')[0].style.overflow = "scroll";
+          document.getElementsByTagName('html')[0].style.overflow = "overlay";
         }
       })
       bus.$on('drawerClosed', () =>{
         this.showDrawer = false;
-        document.getElementsByTagName('html')[0].style.overflow = "scroll";
+        document.getElementsByTagName('html')[0].style.overflow = "overlay";
       })
       window.addEventListener('scroll', this.handleScroll);
     },
@@ -103,7 +103,7 @@ em{
 
   h1{
     text-align:center;
-    margin-top:40vh;
+    padding-top:40vh;
     font-size:3rem;
     padding-bottom:2rem;
   }
@@ -127,7 +127,7 @@ em{
 }
 
 .title-sheet{
-  height:80vh;
+  height:110vh;
 }
 
 
@@ -151,10 +151,6 @@ em{
 
 .center {
   text-align:center;
-}
-
-.noscroll{
-  overflow-y:hidden !important;
 }
 
 </style>

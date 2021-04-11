@@ -6,20 +6,26 @@
         fixed
         :class="isDark ? 'dark' : 'light'"
     >
-        <v-spacer></v-spacer>
-        <v-app-bar-nav-icon
-            id="nav-icon"
-            @click="onClickNavIcon"
-            class="app-bar-icon"
-        >
-        </v-app-bar-nav-icon>
-        <v-container
-            v-if="showDrawer"
-            id="drawer"
-            fluid
-        >
-            <NavLinkList />
-        </v-container>
+        <v-col>
+            <v-row>
+                <v-spacer></v-spacer>
+                <v-app-bar-nav-icon
+                    id="nav-icon"
+                    @click="onClickNavIcon"
+                    class="app-bar-icon"
+                >
+                </v-app-bar-nav-icon>
+            </v-row>
+            <v-row>
+                <v-container
+                    v-if="showDrawer"
+                    id="drawer"
+                    fluid
+                >
+                    <NavLinkList />
+                </v-container>
+            </v-row>
+        </v-col>
     </v-container>
 </template>
 
@@ -81,11 +87,15 @@ export default {
     left:0px;
     z-index:999;
     overflow-y:hidden;
+    padding-left:1vw;
+    padding-right:1vw;
 }
 
 #nav-icon{
     background-color:inherit !important;
     color:inherit !important;
+    margin-left:1vw;
+    margin-right:1vw;
 }
 
 #drawer{

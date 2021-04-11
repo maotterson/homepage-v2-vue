@@ -63,6 +63,7 @@ export default {
 <style>
 #navbar{
     background-color:var(--background-color-light);
+    width:100vw;
 }
 
 #nav-icon{
