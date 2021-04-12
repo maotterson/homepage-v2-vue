@@ -1,5 +1,8 @@
 # homepage-vue
-Redesign of homepage using Vue.js framework with Vuetify
+```
+Discontinued vue.js+vuetify implementation of homepage 
+(discontinuted in favor of svelte+tailwind implementation)
+```
 
 ## Project setup
 ```
